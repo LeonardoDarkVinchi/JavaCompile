@@ -1,6 +1,6 @@
 @echo off
 cls
-echo Compiler version: 3.3
+echo Compiler version: 3.4
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 javac *.java
@@ -44,9 +44,9 @@ rem 3.3
 rem Добавлен updater.bat для массового копирования новой версии
 rem компилятора в папки проектов. Для этого папки проектов должны быть
 rem на уровне папки компилятора. 
-rem  
-rem  
-rem  
+rem 3.4 
+rem Улучшен updater.bat (добавлена защита от копирования в папки без
+rem исходников)
 rem  
 rem  
 rem  

@@ -1,6 +1,6 @@
 @echo off
 cls
-echo Compiler version: 3.4
+echo Compiler version: 3.5
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 javac *.java
@@ -47,8 +47,8 @@ rem на уровне папки компилятора.
 rem 3.4 
 rem Улучшен updater.bat (добавлена защита от копирования в папки без
 rem исходников)
-rem  
-rem  
+rem 3.5 
+rem исправлен updater.bat (не копировал файлы из папки compile_res)
 rem  
 rem  
 rem  

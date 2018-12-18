@@ -1,6 +1,6 @@
 @echo off
 cls
-echo Compiler version: 3.5
+echo Compiler version: 3.6
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 javac *.java
@@ -49,6 +49,8 @@ rem Улучшен updater.bat (добавлена защита от копирования в папки без
 rem исходников)
 rem 3.5 
 rem исправлен updater.bat (не копировал файлы из папки compile_res)
-rem  
-rem  
-rem  
+rem 3.6
+rem Улучшен make_package.bat и jar_creator.bat
+rem В них добавлены функции позволяющие собирать ресурсы из корня директории
+rem там же где лежат и исходники.
+rem олсо добавлена проверка на пустые папки img и audio

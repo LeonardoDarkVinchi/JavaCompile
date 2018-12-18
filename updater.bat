@@ -8,7 +8,7 @@ for /d %%B in (..\*) do (
 			copy /y .\* "%%B\" >nul
 			copy /y .\compile_res "%%B\compile_res" >nul
 			del "%%B\updater.bat"
-			echo "%%B" updated!
+			echo %%B updated!
 		)
 	)
 )

@@ -1,22 +1,24 @@
 @echo off
 cls
-echo Compiler version: 4.0
+echo Compiler version: 4.1
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
+if not exist MANIFEST.MF call compile_res\manifest_creator.bat
+call compile_res\tmp_class_name_finder.bat 1
+set /p mainclass=< classname.tmp
 javac *.java
-if exist *.class (
-	if not exist MANIFEST.MF call compile_res\manifest_creator.bat
-	call compile_res\tmp_class_name_finder.bat 1
+if exist %mainclass%.class (
 	if not exist starter.bat call compile_res\starter_creator.bat
 	call compile_res\version_changer.bat
 	call compile_res\make_package.bat
 	call compile_res\jar_creator.bat
-	call compile_res\tmp_class_name_finder.bat 2
 	echo Work is done
 ) else (
 	echo You do it wrong. You`re awful man!
+	del /S /F /Q *.class >nul
 	move tmp\*.* .\ >nul
 )
+call compile_res\tmp_class_name_finder.bat 2
 del /S /F /Q tmp\ >nul
 rd tmp >nul
 
@@ -62,6 +64,40 @@ rem Выделен модуль tmp_class_name_finder который находит имя пакета и
 rem главного класса из метафайла, а затем выносит каждый в отдельный файл. 
 rem Также модуль удаляет эти временные файлы, если его вызвать с параметром 2.
 rem Переработаны все остальные модули под нововведение. 
+rem 4.1
+rem Убрана лишняя проверка из updater.bat
+rem Исправлена ошибка, связанная с компиляцией классов
+rem Теперь, если главный класс не скомпилирован, то сборка проекта 
+rem не продолжится, а произойдет откат до предыдущей рабочей версии
+rem (готовых решений, исходники никак не затрагиваются)
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
+rem 
 rem 
 rem 
 rem 

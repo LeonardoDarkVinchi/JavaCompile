@@ -27,9 +27,7 @@ for /f "tokens=1,2 delims=:" %%i in (%manifest%) do (
 goto end
 
 :second
-if exist %classfile%
-	del /S /F /Q %classfile% >nul
-if exist %packagefile%
-	del /S /F /Q %packagefile% >nul
+if exist %classfile% del /S /F /Q %classfile% >nul
+if exist %packagefile% del /S /F /Q %packagefile% >nul
 
 :end

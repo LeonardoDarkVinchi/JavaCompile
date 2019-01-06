@@ -1,10 +1,14 @@
 @echo off
 SETLOCAL ENABLEDELAYEDEXPANSION
-set file=starter.bat
-set manifest=MANIFEST.MF
-for /f "tokens=1,2 delims=:" %%i in (%manifest%) do (
-	if %%i==Main-Class (
-		(echo java %%j)>>%file%
-	)
-)
 
+set file=starter.bat
+set string=lol
+
+if exist packagename.tmp (
+	set /p pn=< packagename.tmp
+	set /p cn=< classname.tmp
+	set string=!pn!.!cn!
+) else (
+	set /p string=< classname.tmp
+)
+(echo java !string!)>>%file%

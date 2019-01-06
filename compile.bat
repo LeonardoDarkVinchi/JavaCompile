@@ -1,15 +1,17 @@
 @echo off
 cls
-echo Compiler version: 3.6
+echo Compiler version: 4.0
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 javac *.java
 if exist *.class (
 	if not exist MANIFEST.MF call compile_res\manifest_creator.bat
+	call compile_res\tmp_class_name_finder.bat 1
 	if not exist starter.bat call compile_res\starter_creator.bat
 	call compile_res\version_changer.bat
 	call compile_res\make_package.bat
 	call compile_res\jar_creator.bat
+	call compile_res\tmp_class_name_finder.bat 2
 	echo Work is done
 ) else (
 	echo You do it wrong. You`re awful man!
@@ -54,3 +56,12 @@ rem Улучшен make_package.bat и jar_creator.bat
 rem В них добавлены функции позволяющие собирать ресурсы из корня директории
 rem там же где лежат и исходники.
 rem олсо добавлена проверка на пустые папки img и audio
+rem 4.0
+rem Глобальное улучшение производительности. 
+rem Выделен модуль tmp_class_name_finder который находит имя пакета и 
+rem главного класса из метафайла, а затем выносит каждый в отдельный файл. 
+rem Также модуль удаляет эти временные файлы, если его вызвать с параметром 2.
+rem Переработаны все остальные модули под нововведение. 
+rem 
+rem 
+rem 

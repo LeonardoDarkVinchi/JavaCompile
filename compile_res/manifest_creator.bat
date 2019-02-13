@@ -1,11 +1,11 @@
-@echo off
+ï»¿@echo off
 chcp 1251 >nul
 set manifest=MANIFEST.MF
 echo Manifest-Version: 1.0>>%manifest%
 set str1=""
->nul chcp 866& set /p str1=Ââåäèòå èìÿ ïàêåòà: 
+>nul chcp 866& set /p str1=Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð¿Ð°ÐºÐµÑ‚Ð°: 
 chcp 1251 >nul
->nul chcp 866& set /p str2=Ââåäèòå èìÿ ãëàâíîãî êëàññà: 
+>nul chcp 866& set /p str2=Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ð³Ð»Ð°Ð²Ð½Ð¾Ð³Ð¾ ÐºÐ»Ð°ÑÑÐ°: 
 if %str1%=="" (
 	echo Main-Class: %str2%>>%manifest%
 ) else (
@@ -13,5 +13,5 @@ if %str1%=="" (
 )
 (echo Program-Version: 0)>>%manifest%
 chcp 1251 >nul
->nul chcp 866& set /p str3=Ââåäèòå èìÿ ðàçðàáî÷èêà: 
+>nul chcp 866& set /p str3=Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð¸Ð¼Ñ Ñ€Ð°Ð·Ñ€Ð°Ð±Ð¾Ñ‡Ð¸ÐºÐ°: 
 echo Created-By: %str3%>>%manifest%

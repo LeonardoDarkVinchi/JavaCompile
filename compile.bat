@@ -1,6 +1,6 @@
 echo off
 cls
-echo Compiler version: 4.1.4
+echo Compiler version: 4.2
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 if not exist MANIFEST.MF call compile_res\manifest_creator.bat
@@ -23,6 +23,9 @@ del /S /F /Q tmp\ >nul
 rd tmp >nul
 
 rem Список изменений
+rem 4.2
+rem Добавлены txt и cfg файлы при формировании пакета и jar-архива.
+rem А также папки docs и resource
 rem 4.1.4
 rem Исправленна ошибка из-за которой echo off игнорировался
 rem 4.1.3

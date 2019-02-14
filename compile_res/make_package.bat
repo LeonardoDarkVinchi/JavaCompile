@@ -40,4 +40,29 @@ if not exist %packagefile% (
 	if exist *.mp3 (
 		copy /Y *.mp3 .\!str!\ >nul
 	)
+
+	if exist docs (
+		md .\!str!\docs\ >nul
+		dir .\docs\ /a-d >nul 2>nul
+		if not errorlevel 1 (
+			copy /Y docs\ .\!str!\docs\ >nul
+		)
+	)
+	
+	if exist resource (
+		md .\!str!\resource\ >nul
+		dir .\resource\ /a-d >nul 2>nul
+		if not errorlevel 1 (
+			copy /Y resource\ .\!str!\resource\ >nul
+		)
+	)
+
+	if exist *.txt (
+		copy /Y *.txt .\!str!\ >nul
+	)
+
+	if exist *.cfg (
+		copy /Y *.cfg .\!str!\ >nul
+	)
+	
 )

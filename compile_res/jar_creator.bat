@@ -33,7 +33,25 @@ if not exist %packagefile% (
 		set varaudio=!varaudio! *.mp3
 	)
 	
-	jar cfm !class!.jar MANIFEST.MF *.class !varimg! !varaudio!
+	if exist docs (
+		set vardoc=docs
+	) else (
+		set vardoc=
+	)
+	
+	if exist resource (
+		set vardoc=!vardoc! resource
+	)
+
+	if exist *.txt (
+		set vardoc=!vardoc! *.txt
+	)
+
+	if exist *.cfg (
+		set vardoc=!vardoc! *.cfg
+	)
+	
+	jar cfm !class!.jar MANIFEST.MF *.class !vardoc! !varimg! !varaudio!
 ) else (
 	set /p package=< %packagefile%
 	jar cfm !class!.jar MANIFEST.MF !package!

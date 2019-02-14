@@ -1,6 +1,6 @@
-﻿@echo off
+echo off
 cls
-echo Compiler version: 4.1.3
+echo Compiler version: 4.1.4
 md tmp >nul
 if exist *.class move *.class tmp\ >nul
 if not exist MANIFEST.MF call compile_res\manifest_creator.bat
@@ -23,6 +23,8 @@ del /S /F /Q tmp\ >nul
 rd tmp >nul
 
 rem Список изменений
+rem 4.1.4
+rem Исправленна ошибка из-за которой echo off игнорировался
 rem 4.1.3
 rem Фикс с русскими символами. Конвертированы файлы compiler.bat
 rem и make_package.bat в UTF-8

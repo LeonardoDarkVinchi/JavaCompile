@@ -11,4 +11,4 @@ if exist packagename.tmp (
 ) else (
 	set /p string=< classname.tmp
 )
-(echo java !string!)>>%file%
+(echo @java !string!)>>%file%
